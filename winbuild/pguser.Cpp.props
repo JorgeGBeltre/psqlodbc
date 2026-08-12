@@ -29,6 +29,11 @@ pguser.Cpp.props
   </PropertyGroup>
   <PropertyGroup>
     <ObjbaseDir Condition="'$(PSQLODBC_OBJBASE)'!=''">$(PSQLODBC_OBJBASE)\</ObjbaseDir>
+    <PG_INC Condition="'$(PG_INC)'==''">C:\Program Files\PostgreSQL\18\include</PG_INC>
+    <PG_LIB Condition="'$(PG_LIB)'==''">C:\Program Files\PostgreSQL\18\lib</PG_LIB>
+    <PG_BIN Condition="'$(PG_BIN)'==''">C:\Program Files\PostgreSQL\18\bin</PG_BIN>
+    <ADD_INC>$(ADD_INC);$(PG_INC);$(PG_INC)/internal;$(PG_INC)/server;$(PG_INC)/server/port/win32</ADD_INC>
+    <ADD_LIBPATH>$(ADD_LIBPATH);$(PG_LIB)</ADD_LIBPATH>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(PlatformToolset.Substring(1,1))'=='1'AND($(PlatformToolset.Substring(2,1).CompareTo('3'))>0)">
     <Link>
